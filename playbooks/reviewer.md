@@ -1,7 +1,4 @@
----
-layout: page
-title: Reviewer Guide
----
+[← Back to Playbooks](README.md) · [Home](../README.md)
 
 # Reviewer Guide — Devices Domain
 

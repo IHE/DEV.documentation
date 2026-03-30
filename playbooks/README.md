@@ -1,8 +1,4 @@
----
-layout: page
-title: Playbooks
-permalink: /playbooks/
----
+[← Home](../README.md)
 
 # Playbooks
 

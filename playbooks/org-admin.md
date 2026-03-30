@@ -1,7 +1,4 @@
----
-layout: page
-title: Org Admin Playbook
----
+[← Back to Playbooks](README.md) · [Home](../README.md)
 
 # Org Admin Playbook — Devices Domain
 

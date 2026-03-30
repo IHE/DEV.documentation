@@ -1,8 +1,4 @@
----
-layout: page
-title: Governance
-permalink: /governance/
----
+[← Home](../README.md)
 
 # Governance
 

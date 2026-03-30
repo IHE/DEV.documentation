@@ -1,7 +1,4 @@
----
-layout: page
-title: Contributor & Lead Author Guide
----
+[← Back to Playbooks](README.md) · [Home](../README.md)
 
 # Contributor & Lead Author Guide — Devices Domain
 

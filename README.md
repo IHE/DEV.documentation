@@ -1,31 +1,27 @@
-# DEV.documentation
+# IHE Devices Domain — Documentation
 
-Documentation, playbooks, and governance for the IHE Devices domain on GitHub.
+Welcome to the documentation hub for the IHE Devices domain on GitHub.
 
-## Viewing the Site
+## Playbooks
 
-This site is published via GitHub Pages from the `docs/` directory. Once Pages is enabled, it will be available at the GitHub Pages URL for this repo.
+Step-by-step guides for every role:
 
-## Editing
+- **[Org Admin Playbook](playbooks/org-admin.md)** — Creating repos from templates, assigning teams
+- **[Domain Lead Playbook](playbooks/domain-lead.md)** — Managing team members, configuring repos, CI/CD
+- **[Contributor & Lead Author Guide](playbooks/contributor.md)** — Writing content, branching, submitting PRs
+- **[Reviewer Guide](playbooks/reviewer.md)** — How to review Pull Requests
 
-All content is in `docs/` as plain Markdown files. To make changes:
+## Governance
 
-1. Edit any `.md` file in `docs/` (you can do this directly on GitHub's web editor)
-2. Commit to `main`
-3. The site rebuilds automatically — no build tools needed
+- **[Roles, Policies & Decisions](governance/README.md)** — Roles and responsibilities, document lifecycle, naming conventions, open decisions
 
-## Structure
+## How to Edit This Documentation
 
-```
-docs/
-├── index.md              ← Home page
-├── _config.yml           ← Jekyll site configuration
-├── playbooks/
-│   ├── index.md          ← Playbooks landing page
-│   ├── org-admin.md      ← Org Admin playbook
-│   ├── domain-lead.md    ← Domain Lead playbook
-│   ├── contributor.md    ← Contributor & Lead Author guide
-│   └── reviewer.md       ← Reviewer guide
-└── governance/
-    └── index.md          ← Governance policies and roles
-```
+All content here is plain Markdown. To update:
+
+1. Click any `.md` file above
+2. Click the pencil icon (edit) in the top-right
+3. Make your changes
+4. Click "Commit changes"
+
+No special tools needed. If you can type, you can update these docs.
