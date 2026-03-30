@@ -49,7 +49,7 @@ All Devices domain repos use the `DEV.` prefix:
 DEV.{name}
 ```
 
-Examples: `DEV.tooling`, `DEV.documentation`, `DEV.template-supplement`
+Examples: `DEV.tooling`, `DEV.documentation`, `DEV.supplement-template`
 
 ### Branches
 
@@ -63,7 +63,7 @@ editorial/{description} — formatting, typos
 
 1. Domain Lead or Lead Author emails an Org Admin with:
    - Repository name (`DEV.{name}`)
-   - Which template to use (`DEV.template-supplement`)
+   - Which template to use (`DEV.supplement-template`)
    - Short description of the document
    - Lead Author's GitHub username
 2. Org Admin creates the repo from the template
