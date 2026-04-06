@@ -11,6 +11,11 @@ Step-by-step guides for every role:
 - **[Contributor & Lead Author Guide](playbooks/contributor.md)** — Writing content, branching, submitting PRs
 - **[Reviewer Guide](playbooks/reviewer.md)** — How to review Pull Requests
 
+## Technical Reference
+
+- **[Theming & Styling](reference/theming.md)** — How the shared CSS and PDF themes work, how to customize per-repo
+- **[Build System](reference/build-system.md)** — How the CI/CD workflow builds HTML and PDF from AsciiDoc
+
 ## Governance
 
 - **[Roles, Policies & Decisions](governance/README.md)** — Roles and responsibilities, document lifecycle, naming conventions, open decisions
