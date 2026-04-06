@@ -9,13 +9,13 @@
 
 ## Your Role
 
-Once a repo is created (either via automation or by an Org Admin) and the team is assigned, you take over.
+Once a new repo is created and the team is assigned, you take over.
 
 **What you do:**
 1. Manage team membership — add/remove contributors and lead authors
-2. Configure new repositories — branch protection, settings
-3. Oversee the contribution workflow — PRs, reviews, merges
-4. Request new repos (via issue form or Org Admin)
+2. Request new repos (via issue form or Org Admin)
+3. Configure new repositories — branch protection, settings
+4. Oversee the contribution workflow — PRs, reviews, merges
 
 **What you don't do:**
 - Create repos yourself (request via issue form or Org Admin)
@@ -41,30 +41,7 @@ Once a repo is created (either via automation or by an Org Admin) and the team i
 
 ---
 
-## Procedure 2: Configuring a New Repository
-
-After the Org Admin creates a repo from a template and assigns the team, do these steps:
-
-### 2a. Branch Protection
-
-1. Go to repo **Settings → Branches**
-2. Click **"Add branch protection rule"**
-3. Branch name pattern: `main`
-4. Recommended settings:
-   - ☑ Require a pull request before merging
-     - Require 1 approval
-   - ☑ Require status checks to pass before merging
-     - Select the CI build check (e.g., `build`)
-   - ☑ Do not allow bypassing the above settings
-5. Click **"Create"**
-
-### 2b. Update the README
-
-The template README has placeholders. Replace them with the actual supplement name, description, and any other metadata.
-
----
-
-## Procedure 3: Requesting a New Repository
+## Procedure 2: Requesting a New Repository
 
 1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)**
 2. Select **"New Repository Request"**
@@ -77,14 +54,49 @@ The automation will create the repo, assign the `dev-co-chairs` team as Admin, a
 
 ---
 
+## Procedure 3: Configuring a New Repository
+
+After a new repo is created, do these steps:
+
+### 3a. Set Up Branch Protection
+
+> Note: Branch protection rules are not copied from the template — this must be done manually for each new repo.
+
+1. Go to repo **Settings → Branches**
+2. Click **"Add branch protection rule"**
+3. Branch name pattern: `main`
+4. Recommended settings:
+   - ☑ Require a pull request before merging
+     - Require 1 approval
+   - ☑ Require status checks to pass before merging
+     - Select the CI build check (e.g., `build`)
+   - ☑ Do not allow bypassing the above settings
+5. Click **"Create"**
+
+### 3b. Update the README
+
+The template README has placeholders. Replace them with the actual supplement name, description, and any other metadata.
+
+---
+
 ## Procedure 4: CI/CD — What the Template Gives You
 
-The supplement template comes with a pre-configured GitHub Actions workflow:
+The supplement template comes with a pre-configured GitHub Actions workflow that builds your document automatically.
 
 - **File:** `.github/workflows/publish.yml`
-- **Trigger:** Push to `main`
-- **What it does:** Renders AsciiDoc → HTML + PDF
-- **Result:** Built files are available as downloadable artifacts in the Actions tab
+- **Triggers:** Push to `main` and pull requests against `main`
+- **What it does:**
+  1. Checks out the supplement repo
+  2. Fetches the shared IHE theme from [DEV.tooling](https://github.com/IHE/DEV.tooling)
+  3. Renders AsciiDoc → HTML (with shared + per-repo CSS)
+  4. Renders AsciiDoc → PDF (with shared PDF theme)
+  5. Uploads the HTML and PDF as downloadable build artifacts
+
+### Downloading Build Output
+
+1. Go to the **Actions** tab of the repo
+2. Click the latest successful workflow run
+3. Scroll to **Artifacts** and download `supplement-output`
 
 ### Checking Build Status
 
@@ -97,6 +109,8 @@ The supplement template comes with a pre-configured GitHub Actions workflow:
 | Problem | Fix |
 |---------|-----|
 | Build fails | Click the red X, read the log. Usually an AsciiDoc syntax error or missing file. |
+
+For more detail on how the build system and theming work, see the [Build System](../reference/build-system.md) and [Theming & Styling](../reference/theming.md) reference pages.
 
 ---
 
@@ -128,6 +142,7 @@ main (protected — no direct pushes)
 | Task | URL |
 |------|-----|
 | Manage team | `github.com/orgs/IHE/teams/devices-domain/members` |
+| Request a new repo | [DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose) |
 | Repo settings | `github.com/IHE/{repo}/settings` |
 | Branch protection | `github.com/IHE/{repo}/settings/branches` |
 | CI/CD runs | `github.com/IHE/{repo}/actions` |
