@@ -9,12 +9,12 @@
 
 ## Your Role
 
-You are the **gatekeeper for new repositories**. Domain Leads and Lead Authors can't create repos themselves — they request them through you.
+You are responsible for the organizational infrastructure that supports the Devices domain on GitHub. Most day-to-day repo creation is **automated** — but you handle one-time setup, troubleshooting, and fallback procedures.
 
 **What you do:**
-1. Create new repositories from templates when requested
-2. Assign the `Devices-Domain` team with Admin access to those repos
-3. Confirm back to the requester
+1. Maintain the GitHub App and automation that creates repos
+2. Create repos manually if the automation is unavailable (see [Manual Repo Creation](org-admin-manual-repo-creation.md))
+3. Create new teams when needed (one-time setup)
 
 **What you don't do:**
 - Manage who is on the Devices team (that's the Domain Lead's job)
@@ -23,54 +23,25 @@ You are the **gatekeeper for new repositories**. Domain Leads and Lead Authors c
 
 ---
 
-## Procedure: Handling a New Repository Request
+## How New Repos Are Created (Automated)
 
-### What You'll Receive (via Email)
+New repositories are created automatically when someone opens a **"New Repository Request"** issue on the [DEV.tooling](https://github.com/IHE/DEV.tooling) repo.
 
-A Domain Lead or Lead Author will send you a request containing:
+### What happens:
 
-| Field | Example | Required? |
-|-------|---------|-----------|
-| **Repository name** | `DEV.wia` | Yes |
-| **Which template to use** | `DEV.supplement-template` | Yes |
-| **Short description** | "WIA Supplement for Devices" | Yes |
-| **Lead Author GitHub username** | `@janedoe` | Yes |
+1. A Domain Lead or Lead Author opens the issue form at [DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)
+2. They fill in the repo name, template, and description
+3. A GitHub Actions workflow automatically:
+   - Creates the repo from the selected template
+   - Assigns the `dev-co-chairs` team as Admin
+   - Comments on the issue with the new repo URL
+   - Closes the issue
 
-### Step 1: Create the Repository
+### Your responsibility:
 
-1. Go to **[github.com/organizations/IHE/repositories/new](https://github.com/organizations/IHE/repositories/new)**
-
-2. Under **"Repository template"**, select the template from the request
-   - For supplements: `IHE/DEV.supplement-template`
-
-3. Fill in:
-   - **Owner:** `IHE`
-   - **Repository name:** the name from the request (e.g., `DEV.wia`)
-   - **Description:** the short description from the request
-   - **Visibility:** *(follow current policy — TBD)*
-   - **Check** ☑ "Include all branches"
-
-4. Click **"Create repository"**
-
-### Step 2: Assign the Devices Team
-
-1. In the new repo, go to **Settings → Collaborators and teams**
-   - Direct URL: `github.com/IHE/{repo-name}/settings/access`
-
-2. Click **"Add teams"**
-
-3. Search for **`Devices-Domain`**
-
-4. Set the role to **"Admin"**
-
-5. Click **"Add"**
-
-### Step 3: Confirm
-
-Reply to the requester with:
-- The repo URL: `https://github.com/IHE/{repo-name}`
-- Confirmation that the `Devices-Domain` team has Admin access
-- Remind them they can now manage settings and contributors themselves
+- **Monitor for failures.** If a workflow fails, check the [Actions tab on DEV.tooling](https://github.com/IHE/DEV.tooling/actions) to see what went wrong.
+- **Fall back to manual creation** if the automation is broken. See [Manual Repo Creation](org-admin-manual-repo-creation.md).
+- **Maintain the GitHub App.** See [GitHub App Setup & Maintenance](org-admin-github-app.md).
 
 ---
 
@@ -90,27 +61,6 @@ Reply to the requester with:
 
 ---
 
-## Email Request Template
-
-Share this with Domain Leads so they know what to send you:
-
-```
-Subject: New Devices Domain Repo Request
-
-To: [Org Admin email]
-
-Please create a new repository with the following details:
-
-  Repository name: DEV.__________
-  Template: DEV.supplement-template
-  Description: ___________________________
-  Lead Author GitHub username: @__________
-
-Thank you!
-```
-
----
-
 ## Quick Reference
 
 | Template | When to use |
@@ -121,11 +71,15 @@ Thank you!
 
 ## Troubleshooting
 
-**"I can't find the template in the dropdown"**
-→ The template repo might not have "Template repository" checked. Ask the Domain Lead to verify in that repo's Settings → General.
+**"The automation failed"**
+→ Check the [Actions tab on DEV.tooling](https://github.com/IHE/DEV.tooling/actions). Click the failed run to see the error. If it's a permissions issue, see [GitHub App Setup & Maintenance](org-admin-github-app.md). If you can't fix it, [create the repo manually](org-admin-manual-repo-creation.md).
 
-**"The requester says they can't change repo settings"**
-→ Check that you assigned the `Devices-Domain` team with the **Admin** role, not Write or Maintain.
-
-**"Someone asks me to add them to the Devices team"**
+**"Someone asks me to add them to a team"**
 → Redirect them to the Domain Lead. You only manage Org-level things, not team membership.
+
+---
+
+## Related Pages
+
+- [Manual Repo Creation (Fallback)](org-admin-manual-repo-creation.md) — step-by-step for creating repos without automation
+- [GitHub App Setup & Maintenance](org-admin-github-app.md) — how the automation works and how to maintain it

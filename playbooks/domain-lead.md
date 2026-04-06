@@ -9,16 +9,16 @@
 
 ## Your Role
 
-Once an Org Admin creates a repo and assigns the `Devices-Domain` team, you take over.
+Once a repo is created (either via automation or by an Org Admin) and the team is assigned, you take over.
 
 **What you do:**
 1. Manage team membership — add/remove contributors and lead authors
 2. Configure new repositories — branch protection, settings
 3. Oversee the contribution workflow — PRs, reviews, merges
-4. Request new repos from Org Admins when needed
+4. Request new repos (via issue form or Org Admin)
 
 **What you don't do:**
-- Create repos yourself (request from Org Admin)
+- Create repos yourself (request via issue form or Org Admin)
 - Manage Org-level settings (billing, base permissions)
 
 ---
@@ -66,18 +66,14 @@ The template README has placeholders. Replace them with the actual supplement na
 
 ## Procedure 3: Requesting a New Repository
 
-When you or a Lead Author needs a new repo, email the Org Admin with:
+1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)**
+2. Select **"New Repository Request"**
+3. Fill in the repo name (`DEV.{name}`), template, and description
+4. Submit the issue
 
-```
-Subject: New Devices Domain Repo Request
+The automation will create the repo, assign the `dev-co-chairs` team as Admin, and comment on the issue with the new repo URL. The issue closes automatically when done.
 
-Repository name: DEV.__________
-Template: DEV.supplement-template
-Description: ___________________________
-Lead Author GitHub username: @__________
-```
-
-The Org Admin will create the repo and assign the `Devices-Domain` team with Admin access.
+> **If the automation is down:** Email an Org Admin with the same details. See the [Org Admin fallback procedure](org-admin-manual-repo-creation.md).
 
 ---
 

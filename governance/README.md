@@ -70,16 +70,16 @@ Use imperative mood, describe what was done:
 
 ## Repository Request Process
 
-1. Domain Lead or Lead Author identifies the need for a new repo
-2. They email the Org Admin with:
-   - Repository name (`DEV.{name}`)
-   - Which template to use (`DEV.supplement-template`)
-   - Short description
-   - Lead Author's GitHub username
-3. Org Admin creates the repo from the template
-4. Org Admin assigns the `Devices-Domain` team as Admin
-5. Org Admin confirms back via email with the repo URL
-6. Domain Lead configures branch protection and repo settings
+### Primary method (automated):
+
+1. Domain Lead or Lead Author opens a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling
+2. They fill in the repo name (`DEV.{name}`), template, and description
+3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, and comments with the repo URL
+4. The issue is closed automatically
+
+### Fallback (manual):
+
+If the automation is unavailable, email an Org Admin with the same details. See the [manual repo creation procedure](../playbooks/org-admin-manual-repo-creation.md).
 
 ## Archival and Versioning
 
