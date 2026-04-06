@@ -53,13 +53,13 @@ Name your branch descriptively:
 
 ### Step 3: Edit the AsciiDoc Files
 
-Open the `.adoc` files in the `src/` directory with your text editor. Make your changes.
+Open the `.adoc` files in the `AsciiDoc_Source/` directory with your text editor. Make your changes.
 
 ### Step 4: Save and Commit
 
 ```bash
 # Stage the files you changed
-git add src/section-3.adoc
+git add AsciiDoc_Source/section-3.adoc
 
 # Commit with a clear message
 git commit -m "Add actor definitions for Device Observer"
@@ -90,7 +90,7 @@ git push -u origin feature/add-actor-definitions
 - If changes are requested, edit the same branch, commit, and push — the PR updates automatically:
 
 ```bash
-git add src/section-3.adoc
+git add AsciiDoc_Source/section-3.adoc
 git commit -m "Address review: clarify actor responsibilities"
 git push
 ```
