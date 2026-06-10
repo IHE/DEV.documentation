@@ -12,7 +12,17 @@ The automated repo creation workflow is powered by a GitHub App called **"IHE De
 2. The issue has a `repo-request` label applied automatically by the form template
 3. A GitHub Actions workflow detects the new issue
 4. The workflow generates a short-lived token from the GitHub App (no personal access tokens)
-5. Using that token, it creates the repo, assigns the team, comments on the issue, and closes it
+5. Using that token, it creates the repo, assigns teams, comments on the issue, and closes it
+
+**Teams assigned to each new repo:**
+
+| Team | Repo role | How |
+|------|-----------|-----|
+| `dev-co-chairs` | Admin | Existing team, granted Admin |
+| `{name}_maintainer` | Maintain | **Created** as a child of `devices-domain` |
+| `{name}_writer` | Write | **Created** as a child of `devices-domain` |
+
+`{name}` is the repo name without the `DEV.` prefix (e.g. `DEV.WIA` → `WIA_writer`, `WIA_maintainer`). Creating teams and managing their repo access requires the app's **Organization → Members: Read and write** permission (already granted). If the `devices-domain` parent team doesn't exist, the per-repo teams are still created but without a parent, and the run logs a warning. See the [Teams reference](../reference/teams.md) for the model.
 
 The key files are in the [DEV.tooling](https://github.com/IHE/DEV.tooling) repo:
 - `.github/ISSUE_TEMPLATE/new-repo-request.yml` — the issue form

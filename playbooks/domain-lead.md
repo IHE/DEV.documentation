@@ -39,6 +39,14 @@ Once a new repo is created and the team is assigned, you take over.
 1. Same team page → Members
 2. Find the person → click the dropdown → **Remove from team**
 
+### Making Someone Else a Manager
+
+To let another person manage a team (add/remove members), promote them to **Maintainer** via the per-person dropdown on the team's Members tab. The exact steps — and the difference between a *team Maintainer* and a repo *Maintain* permission — are covered in the [Teams, Sub-Teams & Managers](../reference/teams.md#4-making-someone-a-manager-team-maintainer) reference.
+
+### Teams, Sub-Teams, and Repo Roles
+
+Each supplement repo has a `{name}_writer` and `{name}_maintainer` child team under `devices-domain`. How these nest, what each can do, and how to assign a team to a repo at the right permission level is documented in [Teams, Sub-Teams & Managers](../reference/teams.md). For new repos, the per-repo teams are created and assigned **automatically** — you only assign teams by hand for existing repos or fixes.
+
 ---
 
 ## Procedure 2: Requesting a New Repository

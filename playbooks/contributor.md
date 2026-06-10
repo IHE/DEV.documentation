@@ -112,6 +112,12 @@ As a Lead Author, you are the primary owner of a specific supplement or document
 
 ---
 
+## Working on a Change Proposal?
+
+Change Proposals (CPs) follow a specific workflow on top of the normal branch/PR steps above — the CP file is created on `main` for visibility, work happens on a CP branch, and approved CPs move into `CP/Approved/`. See the [Change Proposal (CP) Workflow](cp-workflow.md) for the full process.
+
+---
+
 ## AsciiDoc Quick Reference
 
 ### Headings

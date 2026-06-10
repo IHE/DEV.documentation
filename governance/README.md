@@ -42,6 +42,20 @@ IHE documents typically move through these stages:
 - Do we use branches for different lifecycle stages?
 - How does the published output reflect the current stage?
 
+## Teams
+
+The Devices domain organizes access through nested GitHub teams:
+
+- **`devices-domain`** — the umbrella parent team for the whole domain.
+- **`dev-co-chairs`** — granted **Admin** on every Devices repo (assigned automatically at repo creation).
+- **`{name}_writer` / `{name}_maintainer`** — a pair of child teams under `devices-domain`, one pair per supplement repo (`{name}` is the repo name without the `DEV.` prefix). The name suffix declares the repo role: `_writer` → **Write**, `_maintainer` → **Maintain**.
+
+For new repos these per-repo teams are created and assigned automatically. The full model — parent/child inheritance, the team-name → repo-role convention, how to promote managers, and how to assign teams to repos — is documented in the [Teams, Sub-Teams & Managers](../reference/teams.md) reference.
+
+## Change Proposals (CPs)
+
+Each supplement repo and the main technical-frameworks repo has a `CP/` directory. A CP file is created on `main` (via a quick branch+merge) so the proposal is visible, all CP work happens on a dedicated CP branch, and a PR to `main` signals it's ready to ballot. Voting happens outside GitHub; if a CP passes it moves to `CP/Approved/`, otherwise work continues in the branch until it's re-balloted. The full process is in the [Change Proposal (CP) Workflow](../playbooks/cp-workflow.md).
+
 ## Naming Conventions
 
 ### Repositories
@@ -74,7 +88,7 @@ Use imperative mood, describe what was done:
 
 1. Domain Lead or Lead Author opens a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling
 2. They fill in the repo name (`DEV.{name}`), template, and description
-3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, and comments with the repo URL
+3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams, and comments with the repo URL
 4. The issue is closed automatically
 
 ### Fallback (manual):
@@ -122,6 +136,6 @@ If the automation is unavailable, email an Org Admin with the same details. See 
 - [ ] Public vs. private repos
 - [ ] License for document content
 - [ ] Document lifecycle → GitHub features mapping
-- [ ] CP workflow (handled outside templates — TBD)
-- [ ] Archival policy for completed documents
+- [x] CP workflow — defined; see [CP Workflow](../playbooks/cp-workflow.md)
+- [ ] Archival policy for completed documents (CP archival folders dropped for now)
 - [ ] Succession plan for key roles

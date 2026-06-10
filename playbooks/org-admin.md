@@ -34,6 +34,7 @@ New repositories are created automatically when someone opens a **"New Repositor
 3. A GitHub Actions workflow automatically:
    - Creates the repo from the selected template
    - Assigns the `dev-co-chairs` team as Admin
+   - Creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams under `devices-domain`
    - Comments on the issue with the new repo URL
    - Closes the issue
 
@@ -58,6 +59,8 @@ New repositories are created automatically when someone opens a **"New Repositor
 7. **Promote to Maintainer:** Find them in the Members list → click the role dropdown → change to **"Maintainer"**
 
 > "Maintainer" lets the Domain Lead add/remove team members on their own.
+
+> **The repo-creation automation depends on this team.** Each new repo gets a `{name}_writer` and `{name}_maintainer` team created as **child teams of `devices-domain`**. If this parent team is missing, the automation still creates the per-repo teams but leaves them without a parent (and logs a warning). Create `Devices-Domain` before relying on the automation.
 
 ---
 

@@ -9,10 +9,12 @@ Step-by-step guides for every role:
 - **[Org Admin Playbook](playbooks/org-admin.md)** — Creating repos from templates, assigning teams
 - **[Domain Lead Playbook](playbooks/domain-lead.md)** — Managing team members, configuring repos, CI/CD
 - **[Contributor & Lead Author Guide](playbooks/contributor.md)** — Writing content, branching, submitting PRs
+- **[Change Proposal (CP) Workflow](playbooks/cp-workflow.md)** — Creating, balloting, and approving CPs
 - **[Reviewer Guide](playbooks/reviewer.md)** — How to review Pull Requests
 
 ## Technical Reference
 
+- **[Teams, Sub-Teams & Managers](reference/teams.md)** — How GitHub teams and child teams work, making others managers, assigning teams to repos
 - **[Theming & Styling](reference/theming.md)** — How the shared CSS and PDF themes work, how to customize per-repo
 - **[Build System](reference/build-system.md)** — How the CI/CD workflow builds HTML and PDF from AsciiDoc
 
