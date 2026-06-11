@@ -23,7 +23,7 @@ Every person on a team is either a **Member** or a **Maintainer**. This controls
 
 A "team Maintainer" is what we mean when we say someone **manages** a team. A team can have more than one Maintainer.
 
-> **This is the part that is not obvious in the GitHub UI** — promoting someone to Maintainer is buried in a per-person dropdown. See [§4](#4-making-someone-a-manager-team-maintainer).
+> **This is the part that is not obvious in the GitHub UI** — promoting someone to Maintainer isn't a per-row control; you select the member with a checkbox and use a **"change role"** action at the top of the list. See [§4](#4-making-someone-a-manager-team-maintainer).
 
 ### Repository permission: what a team can do to a repo
 
@@ -96,14 +96,15 @@ This is the task that's hard to find in the UI. To let another person manage a t
 1. Go to the team page: **`github.com/orgs/IHE/teams/{team-name}`**
    (e.g. `github.com/orgs/IHE/teams/devices-domain`)
 2. Click the **"Members"** tab.
-3. Find the person in the list. **The role control is on the right end of their row** — it shows their current role (**"Member"**) as a dropdown.
-   - If you don't see a dropdown, you're not a Maintainer of this team — ask an Org Owner or an existing Maintainer.
-4. Click that **"Member" dropdown** → choose **"Maintainer"**.
-5. The change takes effect immediately. They now manage the team.
+3. Find the person in the list and **tick the checkbox next to their name**.
+   - You can select more than one person to change several roles at once.
+   - If you don't see checkboxes, you're not a Maintainer of this team — ask an Org Owner or an existing Maintainer.
+4. At the **top of the members list**, open the **"change role"** dropdown that appears once someone is selected.
+5. Choose **"Maintainer"** (or "Change role to maintainer"). The change takes effect immediately — they now manage the team.
 
-> **If the person isn't on the team yet:** add them first (**"Add a member"** → search username → Add), then follow steps 3–4 to promote them.
+> **If the person isn't on the team yet:** add them first (**"Add a member"** → search username → Add), then follow steps 3–5 to promote them.
 
-To demote: same dropdown → choose **"Member"**.
+To demote: select them the same way → **"change role"** → **"Member"**.
 
 ---
 
@@ -132,7 +133,7 @@ To change an existing team's permission later: same page → find the team in th
 
 | I want to… | Where | Key step |
 |------------|-------|----------|
-| Let someone manage a team | `orgs/IHE/teams/{team}` → Members | Change their row dropdown from **Member** to **Maintainer** |
+| Let someone manage a team | `orgs/IHE/teams/{team}` → Members | Tick their checkbox → **"change role"** → **Maintainer** |
 | Add a person to a team | `orgs/IHE/teams/{team}` → Members | **"Add a member"** → search → Add |
 | Give a team access to a repo | `IHE/{repo}` → Settings → Collaborators and teams | **"Add teams"** → set Role to match the name |
 | Fix a wrong permission | same as above | Use the team's **Role** dropdown |

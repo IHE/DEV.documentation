@@ -56,7 +56,7 @@ New repositories are created automatically when someone opens a **"New Repositor
 4. **Visibility:** Visible
 5. Click **"Create team"**
 6. **Add the Domain Lead:** Team page → Members → "Add a member" → search by username → Add
-7. **Promote to Maintainer:** Find them in the Members list → click the role dropdown → change to **"Maintainer"**
+7. **Promote to Maintainer:** In the Members list, tick the checkbox next to their name → use the **"change role"** dropdown at the top of the list → choose **"Maintainer"**
 
 > "Maintainer" lets the Domain Lead add/remove team members on their own.
 

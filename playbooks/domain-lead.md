@@ -41,7 +41,7 @@ Once a new repo is created and the team is assigned, you take over.
 
 ### Making Someone Else a Manager
 
-To let another person manage a team (add/remove members), promote them to **Maintainer** via the per-person dropdown on the team's Members tab. The exact steps — and the difference between a *team Maintainer* and a repo *Maintain* permission — are covered in the [Teams, Sub-Teams & Managers](../reference/teams.md#4-making-someone-a-manager-team-maintainer) reference.
+To let another person manage a team (add/remove members), promote them to **Maintainer**: on the team's Members tab, tick the checkbox next to their name, then use the **"change role"** dropdown at the top of the list. The exact steps — and the difference between a *team Maintainer* and a repo *Maintain* permission — are covered in the [Teams, Sub-Teams & Managers](../reference/teams.md#4-making-someone-a-manager-team-maintainer) reference.
 
 ### Teams, Sub-Teams, and Repo Roles
 
