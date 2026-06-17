@@ -56,7 +56,7 @@ Each supplement repo has a `{name}_writer` and `{name}_maintainer` child team un
 3. Fill in the repo name (`DEV.{name}`), template, and description
 4. Submit the issue
 
-The automation will create the repo, assign the `dev-co-chairs` team as Admin, and comment on the issue with the new repo URL. The issue closes automatically when done.
+The automation will create the repo, assign the `dev-co-chairs` team as Admin, create empty _Maintainer and _Writer teams, and comment on the issue with the new repo URL. The issue closes automatically when done.
 
 > **If the automation is down:** Email an Org Admin with the same details. See the [Org Admin fallback procedure](org-admin-manual-repo-creation.md).
 
