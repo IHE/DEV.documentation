@@ -51,12 +51,14 @@ Each supplement repo has a `{name}_writer` and `{name}_maintainer` child team un
 
 ## Procedure 2: Requesting a New Repository
 
+> **Who can request:** Automated repo creation is restricted to members of the **`dev-co-chairs`** team. If you are a co-chair, follow the steps below. If you are not, ask a co-chair to open the request on your behalf — a request opened by anyone else is automatically declined and the issue is closed.
+
 1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)**
 2. Select **"New Repository Request"**
 3. Fill in the repo name (`DEV.{name}`), template, and description
 4. Submit the issue
 
-The automation will create the repo, assign the `dev-co-chairs` team as Admin, create empty _Maintainer and _Writer teams, and comment on the issue with the new repo URL. The issue closes automatically when done.
+The automation first checks that you are an active `dev-co-chairs` member, then creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `_maintainer` and `_writer` teams, and comments on the issue with the new repo URL. The issue closes automatically when done.
 
 > **If the automation is down:** Email an Org Admin with the same details. See the [Org Admin fallback procedure](org-admin-manual-repo-creation.md).
 

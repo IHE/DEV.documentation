@@ -12,7 +12,8 @@ The automated repo creation workflow is powered by a GitHub App called **"IHE De
 2. The issue has a `repo-request` label applied automatically by the form template
 3. A GitHub Actions workflow detects the new issue
 4. The workflow generates a short-lived token from the GitHub App (no personal access tokens)
-5. Using that token, it creates the repo, assigns teams, comments on the issue, and closes it
+5. **It checks that the issue author is an active member of `dev-co-chairs`.** If not, it comments, closes the issue, and stops — no repo is created.
+6. Using that token, it creates the repo, assigns teams, comments on the issue, and closes it
 
 **Teams assigned to each new repo:**
 

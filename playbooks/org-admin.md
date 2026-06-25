@@ -25,13 +25,14 @@ You are responsible for the organizational infrastructure that supports the Devi
 
 ## How New Repos Are Created (Automated)
 
-New repositories are created automatically when someone opens a **"New Repository Request"** issue on the [DEV.tooling](https://github.com/IHE/DEV.tooling) repo.
+New repositories are created automatically when a **`dev-co-chairs`** member opens a **"New Repository Request"** issue on the [DEV.tooling](https://github.com/IHE/DEV.tooling) repo. Requests from anyone outside that team are automatically declined and the issue is closed.
 
 ### What happens:
 
-1. A Domain Lead or Lead Author opens the issue form at [DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)
+1. A `dev-co-chairs` member opens the issue form at [DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)
 2. They fill in the repo name, template, and description
 3. A GitHub Actions workflow automatically:
+   - Verifies the requester is an active `dev-co-chairs` member (otherwise comments, closes, and stops)
    - Creates the repo from the selected template
    - Assigns the `dev-co-chairs` team as Admin
    - Creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams under `devices-domain`

@@ -108,7 +108,7 @@ As a Lead Author, you are the primary owner of a specific supplement or document
 1. **Coordinate contributions** — decide who works on what sections
 2. **Review PRs** — you're the first reviewer for changes to your document
 3. **Manage the document lifecycle** — track status (draft, public comment, trial implementation, final text)
-4. **Request the repo** — when starting a new supplement, open a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling. Fill in the repo name, template, and description. The repo will be created automatically.
+4. **Request the repo** — when starting a new supplement, a new repository is needed. Automated repo creation is restricted to **`dev-co-chairs`** members, so ask a Devices domain co-chair to open a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling (repo name, template, description). If you are a co-chair yourself, you can open it directly. The repo is then created automatically.
 
 ---
 

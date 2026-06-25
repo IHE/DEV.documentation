@@ -86,7 +86,7 @@ Use imperative mood, describe what was done:
 
 ### Primary method (automated):
 
-1. Domain Lead or Lead Author opens a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling
+1. A **`dev-co-chairs`** member opens a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling (requests from anyone else are automatically declined)
 2. They fill in the repo name (`DEV.{name}`), template, and description
 3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams, and comments with the repo URL
 4. The issue is closed automatically
