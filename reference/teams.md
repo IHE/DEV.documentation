@@ -83,7 +83,7 @@ The team **name suffix declares the role it is meant to have**, and the repo per
 
 > Note: `_maintainer` here is the **repo permission** "Maintain" — do **not** confuse it with the **team** role "Maintainer" from [§1](#1-the-mental-model). A `_maintainer` team can still have plain Members and Maintainers of its own.
 
-When you assign a team to a repo ([§5](#5-assigning-a-team-to-a-repo-with-the-right-role)), pick the permission from this table that matches the name. If you ever see a `_writer` team with Admin, or a `_maintainer` team with Read, that's drift — fix it.
+When you assign a team to a repo ([§6](#6-assigning-a-team-to-a-repo-with-the-right-role)), pick the permission from this table that matches the name. If you ever see a `_writer` team with Admin, or a `_maintainer` team with Read, that's drift — fix it.
 
 ---
 
@@ -108,7 +108,46 @@ To demote: select them the same way → **"change role"** → **"Member"**.
 
 ---
 
-## 5. Assigning a Team to a Repo with the Right Role
+## 5. Adding People to a Team (and the Org-Invite Catch)
+
+There's a catch that trips everyone up on our plan:
+
+> **A person can only be on a team if they are a member of the IHE organization — and on the Free plan, only an Org Owner can invite someone to the organization.**
+
+So if you try to add someone who isn't in the IHE org yet, the normal team UI won't let you complete it: you'd first need an Owner to invite them to the org. To get around that bottleneck, we have an **automation** that does the org invite *and* the team add in one step, on behalf of co-chairs.
+
+### Recommended: the "Add People to a Team" automation
+
+Use this for **anyone**, whether or not they're already in the IHE org.
+
+1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)**
+2. Select **"Add People to a Team"**
+3. Enter the **team name** (e.g. `WIA_writer`, `WIA_maintainer`, or `dev-co-chairs` — capitalization and hyphen/underscore don't have to be exact; it's matched against the real teams)
+4. List the **GitHub usernames and/or email addresses**, one per line
+5. Submit
+
+The workflow checks you're allowed (see below), then for each person:
+- **Already an IHE org member** → added to the team immediately.
+- **Not yet a member** → sent an **organization invitation**; they join the team automatically once they accept.
+
+It comments back on the issue with a per-person result and closes the issue.
+
+> **Who can use it:** members of **`dev-co-chairs`**, or a **maintainer of the specific team** you're adding to. Anyone else is declined.
+>
+> **Eligible teams:** any per-repo team (a child of `devices-domain`) and `dev-co-chairs`.
+
+### Manual alternative (existing org members only)
+
+If the person is **already in the IHE org**, a team Maintainer can add them directly:
+
+1. Team page → **Members** tab → **"Add a member"**
+2. Search their username → **Add**
+
+This path **cannot** invite someone who isn't in the org yet — for that, use the automation above (or ask an Org Owner to send the org invite first).
+
+---
+
+## 6. Assigning a Team to a Repo with the Right Role
 
 This grants a whole team access to a repository at a chosen permission level. Do it from the **repo** side (it's the most reliable path in the UI).
 
@@ -129,12 +168,13 @@ To change an existing team's permission later: same page → find the team in th
 
 ---
 
-## 6. Quick Reference
+## 7. Quick Reference
 
 | I want to… | Where | Key step |
 |------------|-------|----------|
 | Let someone manage a team | `orgs/IHE/teams/{team}` → Members | Tick their checkbox → **"change role"** → **Maintainer** |
-| Add a person to a team | `orgs/IHE/teams/{team}` → Members | **"Add a member"** → search → Add |
+| Add someone (new or existing) to a team | [DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose) | **"Add People to a Team"** — handles the org invite too |
+| Add an **existing org member** to a team | `orgs/IHE/teams/{team}` → Members | **"Add a member"** → search → Add |
 | Give a team access to a repo | `IHE/{repo}` → Settings → Collaborators and teams | **"Add teams"** → set Role to match the name |
 | Fix a wrong permission | same as above | Use the team's **Role** dropdown |
 | Make a child (sub) team | `orgs/IHE/new-team` | Set **"Parent team"** to `devices-domain` when creating |

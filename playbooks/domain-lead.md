@@ -27,12 +27,21 @@ Once a new repo is created and the team is assigned, you take over.
 
 ### Adding a Contributor
 
-1. Go to **[github.com/orgs/IHE/teams/devices-domain/members](https://github.com/orgs/IHE/teams/devices-domain/members)**
-2. Click **"Add a member"**
-3. Search for their GitHub username
-4. Click **"Add"** — they'll receive an invitation
+**For most cases — including anyone not yet in the IHE org — use the automation:**
+
+1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)** → **"Add People to a Team"**
+2. Enter the team name and list usernames/emails → submit
+
+This invites people to the IHE org if needed *and* adds them to the team in one step. It's the only self-service way to onboard someone who isn't already an org member (on the Free plan, only an Org Owner can send org invites directly).
+
+**If the person is already an IHE org member,** you can instead add them by hand:
+
+1. Go to **[github.com/orgs/IHE/teams/devices-domain/members](https://github.com/orgs/IHE/teams/devices-domain/members)** (or the relevant team)
+2. Click **"Add a member"** → search their GitHub username → **"Add"**
 
 > They're added as a "Member" by default. Only promote to "Maintainer" if they should also manage the team roster.
+
+See [Teams, Sub-Teams & Managers → Adding People to a Team](../reference/teams.md#5-adding-people-to-a-team-and-the-org-invite-catch) for the full explanation.
 
 ### Removing a Contributor
 
