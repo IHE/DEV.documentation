@@ -48,7 +48,7 @@ The Devices domain organizes access through nested GitHub teams:
 
 - **`devices-domain`** — the umbrella parent team for the whole domain.
 - **`dev-co-chairs`** — granted **Admin** on every Devices repo (assigned automatically at repo creation).
-- **`{name}_writer` / `{name}_maintainer`** — a pair of child teams under `devices-domain`, one pair per supplement repo (`{name}` is the repo name without the `DEV.` prefix). The name suffix declares the repo role: `_writer` → **Write**, `_maintainer` → **Maintain**.
+- **`{name} writer` / `{name} maintainer`** — a pair of child teams under `devices-domain`, one pair per supplement repo (`{name}` is the repo name without the `DEV.` prefix). The last word declares the repo role: `… writer` → **Write**, `… maintainer` → **Maintain**.
 
 For new repos these per-repo teams are created and assigned automatically. The full model — parent/child inheritance, the team-name → repo-role convention, how to promote managers, and how to assign teams to repos — is documented in the [Teams, Sub-Teams & Managers](../reference/teams.md) reference.
 
@@ -88,7 +88,7 @@ Use imperative mood, describe what was done:
 
 1. A **`dev-co-chairs`** member opens a [New Repository Request](https://github.com/IHE/DEV.tooling/issues/new/choose) issue on DEV.tooling (requests from anyone else are automatically declined)
 2. They fill in the repo name (`DEV.{name}`), template, and description
-3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams, and comments with the repo URL
+3. A GitHub Actions workflow automatically creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `{name} writer` (Write) and `{name} maintainer` (Maintain) child teams, fills in the README/metadata placeholders, adds the requester as a maintainer of both teams (plus any people listed on the form), and comments with the repo URL
 4. The issue is closed automatically
 
 ### Fallback (manual):

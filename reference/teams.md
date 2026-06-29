@@ -57,15 +57,15 @@ Membership does **not** inherit the same way: being a member of the parent team 
 
 ```
 devices-domain                     (parent — the whole domain)
- ├── DEV.SDPi  →  SDPi_maintainer   (child, repo permission: Maintain)
- │                SDPi_writer       (child, repo permission: Write)
- ├── DEV.PCIM  →  PCIM_maintainer   (child, Maintain)
- │                PCIM_writer       (child, Write)
- └── ... one _maintainer + _writer child pair per supplement repo
+ ├── DEV.SDPi  →  SDPi maintainer   (child, repo permission: Maintain)
+ │                SDPi writer       (child, repo permission: Write)
+ ├── DEV.PCIM  →  PCIM maintainer   (child, Maintain)
+ │                PCIM writer       (child, Write)
+ └── ... one "maintainer" + "writer" child pair per supplement repo
 ```
 
 - **`devices-domain`** is the umbrella parent team. The Domain Lead is a Maintainer of it.
-- For each supplement repo, two **child teams** are created: `{name}_writer` and `{name}_maintainer` (where `{name}` is the repo name **without** the `DEV.` prefix — e.g. `DEV.WIA` → `WIA_writer`, `WIA_maintainer`).
+- For each supplement repo, two **child teams** are created: `{name} writer` and `{name} maintainer` (where `{name}` is the repo name **without** the `DEV.` prefix — e.g. `DEV.WIA` → team names `WIA writer` and `WIA maintainer`, which GitHub turns into the URL slugs `wia-writer` and `wia-maintainer`).
 - **`dev-co-chairs`** is granted **Admin** on every repo (handled by the [repo-creation automation](../playbooks/org-admin-github-app.md)), so the co-chairs always have full control regardless of the per-repo teams.
 
 For new repos, the per-repo child teams are **created and wired up automatically** by the repo-creation workflow. You only do the steps below manually for existing repos, or to fix something up.
@@ -74,16 +74,16 @@ For new repos, the per-repo child teams are **created and wired up automatically
 
 ## 3. The Team-Name → Repo-Role Convention
 
-The team **name suffix declares the role it is meant to have**, and the repo permission must be set to match. Keeping these aligned is what makes the convention trustworthy — the name tells you the access without having to open settings.
+The last word of the team name **declares the role it is meant to have**, and the repo permission must be set to match. Keeping these aligned is what makes the convention trustworthy — the name tells you the access without having to open settings.
 
-| Team name suffix | Intended role | Repo permission to assign |
+| Team name ending | Intended role | Repo permission to assign |
 |------------------|---------------|---------------------------|
-| `_writer` | Contributors / lead authors who edit content | **Write** |
-| `_maintainer` | People who manage the repo's content workflow | **Maintain** |
+| `… writer` | Contributors / lead authors who edit content | **Write** |
+| `… maintainer` | People who manage the repo's content workflow | **Maintain** |
 
-> Note: `_maintainer` here is the **repo permission** "Maintain" — do **not** confuse it with the **team** role "Maintainer" from [§1](#1-the-mental-model). A `_maintainer` team can still have plain Members and Maintainers of its own.
+> Note: a `… maintainer` team's name refers to the **repo permission** "Maintain" — do **not** confuse it with the **team** role "Maintainer" from [§1](#1-the-mental-model). A maintainer team can still have plain Members and Maintainers of its own.
 
-When you assign a team to a repo ([§6](#6-assigning-a-team-to-a-repo-with-the-right-role)), pick the permission from this table that matches the name. If you ever see a `_writer` team with Admin, or a `_maintainer` team with Read, that's drift — fix it.
+When you assign a team to a repo ([§6](#6-assigning-a-team-to-a-repo-with-the-right-role)), pick the permission from this table that matches the name. If you ever see a writer team with Admin, or a maintainer team with Read, that's drift — fix it.
 
 ---
 
@@ -122,7 +122,7 @@ Use this for **anyone**, whether or not they're already in the IHE org.
 
 1. Go to **[DEV.tooling → New Issue](https://github.com/IHE/DEV.tooling/issues/new/choose)**
 2. Select **"Add People to a Team"**
-3. Enter the **team name** (e.g. `WIA_writer`, `WIA_maintainer`, or `dev-co-chairs` — capitalization and hyphen/underscore don't have to be exact; it's matched against the real teams)
+3. Enter the **team name** (e.g. `WIA writer`, `WIA maintainer`, or `dev-co-chairs` — capitalization and exact spacing don't matter; it's matched against the real teams)
 4. List the **GitHub usernames and/or email addresses**, one per line
 5. Submit
 
@@ -156,10 +156,10 @@ This grants a whole team access to a repository at a chosen permission level. Do
 1. Go to the repo: **`github.com/IHE/{repo}`**
 2. **Settings** tab → left sidebar **"Collaborators and teams"** (under *Access*).
 3. Under **Teams**, click **"Add teams"**.
-4. Search for the team (e.g. `WIA_writer`) → select it.
+4. Search for the team (e.g. `WIA writer`) → select it.
 5. A **"Role"** dropdown appears → set the permission to **match the team name** per the [convention table](#3-the-team-name--repo-role-convention):
-   - `…_writer` → **Write**
-   - `…_maintainer` → **Maintain**
+   - `… writer` → **Write**
+   - `… maintainer` → **Maintain**
 6. Click **"Add … to this repository"**.
 
 To change an existing team's permission later: same page → find the team in the list → use its **Role** dropdown → pick the new level.

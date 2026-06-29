@@ -35,7 +35,8 @@ New repositories are created automatically when a **`dev-co-chairs`** member ope
    - Verifies the requester is an active `dev-co-chairs` member (otherwise comments, closes, and stops)
    - Creates the repo from the selected template
    - Assigns the `dev-co-chairs` team as Admin
-   - Creates the per-repo `{name}_writer` (Write) and `{name}_maintainer` (Maintain) child teams under `devices-domain`
+   - Creates the per-repo `{name} writer` (Write) and `{name} maintainer` (Maintain) child teams under `devices-domain`
+   - Fills in the README/metadata placeholders and seeds team membership (the requester becomes a maintainer of both teams)
    - Comments on the issue with the new repo URL
    - Closes the issue
 
@@ -61,7 +62,7 @@ New repositories are created automatically when a **`dev-co-chairs`** member ope
 
 > "Maintainer" lets the Domain Lead add/remove team members on their own.
 
-> **The repo-creation automation depends on this team.** Each new repo gets a `{name}_writer` and `{name}_maintainer` team created as **child teams of `devices-domain`**. If this parent team is missing, the automation still creates the per-repo teams but leaves them without a parent (and logs a warning). Create `Devices-Domain` before relying on the automation.
+> **The repo-creation automation depends on this team.** Each new repo gets a `{name} writer` and `{name} maintainer` team created as **child teams of `devices-domain`**. If this parent team is missing, the automation still creates the per-repo teams but leaves them without a parent (and logs a warning). Create `Devices-Domain` before relying on the automation.
 
 ---
 

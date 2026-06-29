@@ -13,17 +13,22 @@ The automated repo creation workflow is powered by a GitHub App called **"IHE De
 3. A GitHub Actions workflow detects the new issue
 4. The workflow generates a short-lived token from the GitHub App (no personal access tokens)
 5. **It checks that the issue author is an active member of `dev-co-chairs`.** If not, it comments, closes the issue, and stops — no repo is created.
-6. Using that token, it creates the repo, assigns teams, comments on the issue, and closes it
+6. Using that token, it creates the repo, assigns teams, fills in template placeholders, seeds team membership, comments on the issue, and closes it
 
 **Teams assigned to each new repo:**
 
 | Team | Repo role | How |
 |------|-----------|-----|
 | `dev-co-chairs` | Admin | Existing team, granted Admin |
-| `{name}_maintainer` | Maintain | **Created** as a child of `devices-domain` |
-| `{name}_writer` | Write | **Created** as a child of `devices-domain` |
+| `{name} maintainer` | Maintain | **Created** as a child of `devices-domain` |
+| `{name} writer` | Write | **Created** as a child of `devices-domain` |
 
-`{name}` is the repo name without the `DEV.` prefix (e.g. `DEV.WIA` → `WIA_writer`, `WIA_maintainer`). Creating teams and managing their repo access requires the app's **Organization → Members: Read and write** permission (already granted). If the `devices-domain` parent team doesn't exist, the per-repo teams are still created but without a parent, and the run logs a warning. See the [Teams reference](../reference/teams.md) for the model.
+`{name}` is the repo name without the `DEV.` prefix (e.g. `DEV.WIA` → team names `WIA writer`, `WIA maintainer`; GitHub slugs `wia-writer`, `wia-maintainer`). Creating teams and managing their repo access requires the app's **Organization → Members: Read and write** permission (already granted). If the `devices-domain` parent team doesn't exist, the per-repo teams are still created but without a parent, and the run logs a warning. See the [Teams reference](../reference/teams.md) for the model.
+
+**Also at creation time, the workflow:**
+
+- **Fills in template placeholders.** `{{double-brace}}` tokens in `README.md` and `AsciiDoc_Source/metadata.adoc` are replaced — the title and description from what we know, and anything unknown (status, revision, date, editor) with a `TODO:` marker so authors can spot them.
+- **Seeds team membership.** The requester is added as a **maintainer of both** new teams (maintainer status doesn't inherit from the parent, so they're added to each directly). Optional **Writers** and **Maintainers** lists from the form are added too — usernames via team membership, emails via org invitation. Each person's result (added / invited / failed) is reported in the issue comment, so a mistyped username is visible and can be retried with [Add People to a Team](https://github.com/IHE/DEV.tooling/issues/new/choose).
 
 The key files are in the [DEV.tooling](https://github.com/IHE/DEV.tooling) repo:
 - `.github/ISSUE_TEMPLATE/new-repo-request.yml` — the issue form

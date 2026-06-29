@@ -54,7 +54,7 @@ To let another person manage a team (add/remove members), promote them to **Main
 
 ### Teams, Sub-Teams, and Repo Roles
 
-Each supplement repo has a `{name}_writer` and `{name}_maintainer` child team under `devices-domain`. How these nest, what each can do, and how to assign a team to a repo at the right permission level is documented in [Teams, Sub-Teams & Managers](../reference/teams.md). For new repos, the per-repo teams are created and assigned **automatically** — you only assign teams by hand for existing repos or fixes.
+Each supplement repo has a `{name} writer` and `{name} maintainer` child team under `devices-domain`. How these nest, what each can do, and how to assign a team to a repo at the right permission level is documented in [Teams, Sub-Teams & Managers](../reference/teams.md). For new repos, the per-repo teams are created and assigned **automatically** — you only assign teams by hand for existing repos or fixes.
 
 ---
 
@@ -67,7 +67,7 @@ Each supplement repo has a `{name}_writer` and `{name}_maintainer` child team un
 3. Fill in the repo name (`DEV.{name}`), template, and description
 4. Submit the issue
 
-The automation first checks that you are an active `dev-co-chairs` member, then creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `_maintainer` and `_writer` teams, and comments on the issue with the new repo URL. The issue closes automatically when done.
+The automation first checks that you are an active `dev-co-chairs` member, then creates the repo, assigns the `dev-co-chairs` team as Admin, creates the per-repo `maintainer` and `writer` teams, fills in the README/metadata placeholders, adds you as a maintainer of both teams (plus anyone you listed in the optional Writers/Maintainers fields), and comments on the issue with the new repo URL. The issue closes automatically when done.
 
 > **If the automation is down:** Email an Org Admin with the same details. See the [Org Admin fallback procedure](org-admin-manual-repo-creation.md).
 
